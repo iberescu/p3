@@ -63,13 +63,28 @@ class GenerateController extends Controller {
 		
 		for ($i = 1;$i <= $this->_request['usersnumber'];$i++)
 		{
-			$users[] = implode(', ',array(
+			$users[] = array(
 				"name" => $faker->name,
 				"birthdate" => $faker->dateTimeThisCentury->format("Y-m-d"),
-				"profile" => $faker->text
-			));
+				"profile" => $faker->text,
+				"email" => $faker->email
+			);
 		}
-		echo json_encode(array('result' => implode('<p>', $users)));
+		$content = view('users.list')->with('users',$users)->with('request',$this->_request)->render();
+		
+		echo json_encode(array('result' => $content));
 		exit;		
-    }		
+    }	
+	    /**
+     * Responds to requests to POST /generate/colors
+     */	
+    public function postColors() {
+		
+		$colors = \Colors\RandomColor::many($this->_request['colorsnumber'],
+			array( 'hue' => $this->_request['palette'])
+		);
+		
+		echo json_encode(array('result' =>  $colors));
+		exit;		
+    }
 }

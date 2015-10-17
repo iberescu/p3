@@ -71,7 +71,7 @@ section {
 }
 .form-image{
 	max-width:500px;
-	margin-top:150px;
+	margin-top:100px;
 }
 
 .form-wrapper label {
@@ -85,12 +85,14 @@ section {
     padding-top: 10px;
 }
 .form-wrapper  input[type="text"], select {
-    width: 50px;
-    height: 30px;
+    width: 100px;
     text-align: center;
+	padding:10px;
 }
-
-.form-wrapper #generate, .form-wrapper #lorem, .form-wrapper #users {
+label{
+	cursor:pointer;
+}
+.form-wrapper #generate, .form-wrapper #lorem, .form-wrapper #users , .form-wrapper #colors{
     display: block;
     padding: 19px 39px 18px 39px;
     color: #FFF;
@@ -104,11 +106,12 @@ section {
     border-width: 1px 1px 3px;
     margin-bottom: 10px;
     margin-top: 10px;
+	cursor:pointer;
 }
 .stong-password{
     color: black;
     padding: 20px;
-    margin-top: 30px;
+    margin-top: 60px;
     background-color: #f4f7f8;
     margin-left: auto;
     margin-right: auto;
@@ -118,7 +121,7 @@ section {
 	margin-top:50px;
 }
 
-.lorem,.users{
+.lorem,.users,.colors{
     color: black;	
 	margin-top:50px;
 	text-align:justify;
@@ -131,16 +134,17 @@ section {
 	display:none;
 
 }
-
-@font-face {
-	font-family: 'fontawesome';
-	src:url('../fonts/fontawesome.eot?-v92fkb');
-	src:url('../fonts/fontawesome.eot?#iefix-v92fkb') format('embedded-opentype'),
-		url('../fonts/fontawesome.woff?-v92fkb') format('woff'),
-		url('../fonts/fontawesome.ttf?-v92fkb') format('truetype');
-	font-weight: normal;
-	font-style: normal;
+.users{
+	width:65%;
 }
+.colors_pattern{
+    width: 50px;
+    height: 50px;
+    margin: 20px;
+    border-radius: 30px;
+	display:inline-block;
+}
+
 
 
 body {
@@ -304,17 +308,6 @@ body {
 	transition: opacity 0.6s;
 }
 
-.icon:before {
-	font-family: 'fontawesome';
-	speak: none;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
 
 .close-content {
 	position: fixed;
@@ -345,11 +338,16 @@ body {
 	opacity: 1;
 	pointer-events: auto;
 }
-
-.close-content:before {
-	content: "\e602";
+i{
+	color: #c5c8ba;
+	margin-right:10px;
 }
-
+.user_entry > div{
+	margin-bottom:5px;
+}
+.user_entry{
+	margin-bottom:25px;
+}
 
 /* Simple fallback */
 /* if any of these are not supported, a simple fallback will be shown */

@@ -52,6 +52,26 @@
 			  }
 			});
 		})		
-		
+		$('#colors').click(function(){
+			$.ajax({
+			  url: APP_URL  + "/generate/colors",
+			  data: $('#colors-wrapper').serialize(),
+			  method: "POST",
+			  dataType: "JSON",
+			  success : function(data){
+					if (typeof(data.error) != 'undefined')
+					{
+						alert(data.error);
+						return;
+					}
+					$('.colors').show().empty().html();
+					for (i in data.result)
+					{
+						$('<div></div>').addClass('colors_pattern').css('background-color',data.result[i]).appendTo('.colors');
+					}
+					
+			  }
+			});
+		})			
 	})
 })(window.jQuery);

@@ -7,8 +7,8 @@
 		<title>P3 -  Developer's Best Friend  - Berescu Ionut  - Harvard 2015</title>
 		<meta name="description" content="Developer's Best Friend" />
 		<link rel="shortcut icon" href="img/favicon.ico">
-		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
-		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
 		<script src="js/jquery.js"></script>
 		<script src="js/modernizr.custom.js"></script>
 		<script src="js/main.js"></script>
@@ -26,7 +26,7 @@
 						<figure><img src="img/lorem_ipsum.jpg" alt="lorem ipsum"/></figure>
 						<figure><img src="img/random_user.png" alt="random users"/></figure>
 						<figure><img src="img/password_strength.png" alt="password strength"/></figure>
-						<figure><img src="img/more_soon.png" alt="more soon"/></figure>
+						<figure><img src="img/random_colors.jpg" alt="random colors"/></figure>
 						<figure><img src="img/more_soon.png" alt="more soon"/></figure>
 						<figure><img src="img/more_soon.png" alt="more soon"/></figure>
 					</div>
@@ -55,6 +55,15 @@
 									<label for="usersnumber">How many users?</label>
 									<input type="text" id="usersnumber" name="usersnumber" value="5">
 								</div>
+								<div class="field ">
+									<input type="checkbox" checked name="emailenable" id="emailenable">
+									<label for="emailenable">Include email address</label>
+								</div>
+
+								<div class="field ">
+									<input type="checkbox" checked name="birthenable" id="birthenable">
+									<label for="birthenable">Include birthday</label>
+								</div>								
 								<div class="field ">								
 									<input type="button" value="Generate" id="users">
 								</div>	
@@ -109,9 +118,39 @@
 						<div class="stong-password">correct-horse-battery-staple</div>							
 						<div><img src="img/password_strength_full.png" class="form-image" alt="password full" /></div>							
 					</div>
-					
 					<div>
-						<div><img src="img/keep-calm-coming-soon.png" class="comming-soon" alt="comming soon" /></div>
+						<div class="form-wrapper">
+							<form id="colors-wrapper">	
+								{!! csrf_field() !!}
+								<div class="field">
+									<label for="usersnumber">How many colors?</label>
+									
+									<select id="colorsnumber" name="colorsnumber">
+										<option value="5">5</option>
+										<option value="10">10</option>
+										<option value="20" selected="selected">20</option>
+										<option value="50">50</option>
+										<option value="75">75</option>
+										<option value="100">100</option>
+									</select>
+								</div>
+								<div class="field">
+									<label for="palette">Palette</label>
+									
+									<select id="palette" name="palette">
+										<option value="random" selected="selected">Random</option>
+										<option value="yellow">Yellow</option>
+										<option value="red">Red</option>
+										<option value="blue">Blue</option>
+										<option value="green">Green</option>
+									</select>
+								</div>								
+								<div class="field ">								
+									<input type="button" value="Generate" id="colors">
+								</div>	
+							</form>
+						</div>
+						<div class="colors"></div>	
 					</div>
 					<div>
 						<div><img src="img/keep-calm-coming-soon.png" class="comming-soon" alt="comming soon" /></div>
@@ -122,7 +161,7 @@
 
 
 					<span class="loading"></span>
-					<span class="icon close-content"></span>
+					<span class="icon close-content"><i class="fa fa-times"></i></span>
 				</div>
 			</section>
 		</div><!-- /container -->

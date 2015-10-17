@@ -19,3 +19,4 @@ Route::get('/', function () {
 Route::post('/generate/password', 'GenerateController@postPassword');
 Route::post('/generate/lorem', 'GenerateController@postLorem');
 Route::post('/generate/users', 'GenerateController@postUsers');
+Route::post('/generate/colors', 'GenerateController@postColors');
