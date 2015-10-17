@@ -12,5 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('first');
 });
+
+
+Route::post('/generate/password', 'GenerateController@postPassword');
+Route::post('/generate/lorem', 'GenerateController@postLorem');
+Route::post('/generate/users', 'GenerateController@postUsers');
