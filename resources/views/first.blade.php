@@ -20,7 +20,7 @@
 				<h1> Developer's Best Friend <span> Click on one of the applications below</span></h1>
 
 			</header>
-			<section class="grid3d vertical" id="grid3d">
+			<div class="grid3d vertical" id="grid3d">
 				<div class="grid-wrap">
 					<div class="grid">
 						<figure><img src="img/lorem_ipsum.jpg" alt="lorem ipsum"/></figure>
@@ -163,7 +163,7 @@
 					<span class="loading"></span>
 					<span class="icon close-content"><i class="fa fa-times"></i></span>
 				</div>
-			</section>
+			</div>
 		</div><!-- /container -->
 		<script src="js/helper.js"></script>
 		<script src="js/grid3d.js"></script>
