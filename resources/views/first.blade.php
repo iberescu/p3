@@ -165,7 +165,6 @@
 				</div>
 			</section>
 		</div><!-- /container -->
-		<script src="js/classie.js"></script>
 		<script src="js/helper.js"></script>
 		<script src="js/grid3d.js"></script>
 		<script>

@@ -93,15 +93,15 @@
 				// simulating loading...
 				setTimeout( function() {
 					// hide loader
-					classie.removeClass( self.loader, 'show' );
+					$(self.loader).removeClass(  'show' );
 					// in the end of the transition set class "show" to respective content item
-					classie.addClass( self.contentItems[ pos ], 'show' );
+					$(self.contentItems[ pos ]).addClass( 'show' );
 				}, 1000 );
 				// show content area
-				classie.addClass( self.contentEl, 'show' );
+				$(self.contentEl).addClass( 'show' );
 				// show loader
-				classie.addClass( self.loader, 'show' );
-				classie.addClass( document.body, 'noscroll' );
+				$(self.loader).addClass( 'show' );
+				$(document.body).addClass( 'noscroll' );
 				self.isAnimating = false;
 			};
 
@@ -127,9 +127,9 @@
 		// and animate it
 		var animFn = function() {
 			// give class "active" to current grid item (hides it)
-			classie.addClass( currentItem, 'active' );
+			$(currentItem).addClass( 'active' );
 			// add class "view-full" to the grid-wrap
-			classie.addClass( self.gridWrap, 'view-full' );
+			$(self.gridWrap).addClass( 'view-full' );
 			// set width/height/left/top of placeholder
 			self._resizePlaceholder();
 			var onEndTransitionFn = function( ev ) {
@@ -148,14 +148,14 @@
 			contentItem = this.el.querySelector( 'div.content > .show' ),
 			currentItem = this.gridItems[ this.contentItems.indexOf( contentItem ) ];
 		
-		classie.removeClass( contentItem, 'show' );
-		classie.removeClass( this.contentEl, 'show' );
+		$(contentItem).removeClass( 'show' );
+		$(this.contentEl).removeClass( 'show' );
 		// without the timeout there seems to be some problem in firefox
-		setTimeout( function() { classie.removeClass( document.body, 'noscroll' ); }, 25 );
+		setTimeout( function() { $(document.body).removeClass( 'noscroll' ); }, 25 );
 		// that's it for no support..
 		if( !this.support ) return false;
 
-		classie.removeClass( this.gridWrap, 'view-full' );
+		$(this.gridWrap).removeClass( 'view-full' );
 
 		// reset placeholder style values
 		this.placeholder.style.left = currentItem.offsetLeft + 'px';
@@ -168,7 +168,7 @@
 			// remove placeholder from grid
 			self.placeholder.parentNode.removeChild( self.placeholder );
 			// show grid item again
-			classie.removeClass( currentItem, 'active' );
+			$(currentItem).removeClass( 'active' );
 		};
 		this.placeholder.addEventListener( transEndEventName, onEndPlaceholderTransFn );
 	}
