@@ -39,9 +39,7 @@ class GenerateController extends Controller {
 		//append special char
 		if (isset($this->_request['addSpecial']) && $this->_request['addSpecial']) $result .= '@';
 
-		echo json_encode(array('result' => $result));
-		exit;	 
-	   
+		return Response::json(array('result' => $result));
     }
     /**
      * Responds to requests to POST /generate/lorem
