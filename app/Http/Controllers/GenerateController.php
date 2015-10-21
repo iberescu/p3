@@ -38,7 +38,7 @@ class GenerateController extends Controller {
 
 		//append special char
 		if (isset($this->_request['addSpecial']) && $this->_request['addSpecial']) $result .= '@';
-
+		
 		return Response::json(array('result' => $result));
     }
     /**
