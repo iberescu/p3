@@ -14,7 +14,7 @@ Project 3 - Developer's Best Friend - CSCI E-15 Dynamic Web Applications - Harva
 * Applications: Lorem Ipsum generator, Random user generator, XKCD Password Generator, Random color generator
 
 ## Demo
-http://screencast.com/t/eLeLkWZ3
+http://screencast.com/t/LdLBF2Il17
 
 
 
