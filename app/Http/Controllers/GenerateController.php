@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Classes\Password;
+use Validator;
+use Response;
 
 
 class GenerateController extends Controller {
@@ -23,8 +25,7 @@ class GenerateController extends Controller {
 		$result = '';
 		if ($error = Password::validate($this->_request))
 		{
-		   echo json_encode(array('error' => $error));
-		   exit;
+		   return Response::json(array('error' => $error));
 		}
 
 		$database = Password::getDb();
@@ -46,12 +47,25 @@ class GenerateController extends Controller {
      * Responds to requests to POST /generate/lorem
      */	
     public function postLorem() {
+		
+		$rules = array('paragraf' => 'required|numeric|min:1|max:50');
+		$validator = Validator::make($this->_request, $rules);
+
+		// Validate the input and return correct response
+		if ($validator->fails())
+		{
+			$errors = $validator->getMessageBag()->toArray();
+			
+			return Response::json(array(
+				'success' => false,
+				'error' => implode(',',$errors['paragraf'])
+			));
+		}
+		
 		$generator = new \Badcow\LoremIpsum\Generator();
 		$paragraphs = $generator->getParagraphs($this->_request['paragraf']);
  
-		echo json_encode(array('result' => implode('<p>', $paragraphs)));
-		exit;
-		
+		return Response::json(array('result' => implode('<p>', $paragraphs)));
     }	 
 	
     /**
@@ -59,6 +73,22 @@ class GenerateController extends Controller {
      */	
     public function postUsers() {
 		$users = array();
+		
+		
+		$rules = array('usersnumber' => 'required|numeric|min:1|max:50');
+		$validator = Validator::make($this->_request, $rules);
+
+		// Validate the input and return correct response
+		if ($validator->fails())
+		{
+			$errors = $validator->getMessageBag()->toArray();
+			
+			return Response::json(array(
+				'success' => false,
+				'error' => implode(',',$errors['usersnumber'])
+			));
+		}		
+		
 		$faker = \Faker\Factory::create();
 		
 		for ($i = 1;$i <= $this->_request['usersnumber'];$i++)
@@ -67,13 +97,14 @@ class GenerateController extends Controller {
 				"name" => $faker->name,
 				"birthdate" => $faker->dateTimeThisCentury->format("Y-m-d"),
 				"profile" => $faker->text,
+				"address" => $faker->address,
+				"phone" => $faker->phoneNumber,
 				"email" => $faker->email
 			);
 		}
 		$content = view('users.list')->with('users',$users)->with('request',$this->_request)->render();
 		
-		echo json_encode(array('result' => $content));
-		exit;		
+		return Response::json(array('result' => $content));
     }	
 	    /**
      * Responds to requests to POST /generate/colors
@@ -84,7 +115,6 @@ class GenerateController extends Controller {
 			array( 'hue' => $this->_request['palette'])
 		);
 		
-		echo json_encode(array('result' =>  $colors));
-		exit;		
+		return Response::json(array('result' =>  $colors));
     }
 }

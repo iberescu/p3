@@ -59,11 +59,19 @@
 									<input type="checkbox" checked name="emailenable" id="emailenable">
 									<label for="emailenable">Include email address</label>
 								</div>
-
 								<div class="field ">
-									<input type="checkbox" checked name="birthenable" id="birthenable">
+									<input type="checkbox" checked name="phone" id="phone">
+									<label for="phone">Include phone number</label>
+								</div>								
+								<div class="field ">
+									<input type="checkbox" name="birthenable" id="birthenable">
 									<label for="birthenable">Include birthday</label>
 								</div>								
+								<div class="field ">
+									<input type="checkbox" name="address" id="address">
+									<label for="address">Include address</label>
+								</div>								
+								
 								<div class="field ">								
 									<input type="button" value="Generate" id="users">
 								</div>	
