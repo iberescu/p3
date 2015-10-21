@@ -28,6 +28,4 @@ http://screencast.com/t/LdLBF2Il17
 * Word list: http://www.mieliestronk.com/corncob_lowercase.txt
 * Grid3d: http://www.codrops.com
 * Modernizr: http://modernizr.com/
-* Images: http://webdesignerdepot.com
-		  http://wefunction.com/
-		  http://all-free-download.com/
+* Images: http://webdesignerdepot.com, http://wefunction.com/, http://all-free-download.com/
